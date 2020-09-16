@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  firefox_ssh_tunnel:
+    image: rathease/ssh-tunnel
+    container_name: firefox_ssh_tunnel
+    restart: unless-stopped
+    volumes:
+      - $HOME/.ssh/id_rsa:/root/src_ssh/id_rsa:ro
+    ports:
+      - $FIREFOX_SSH_PORT:3000
+    environment:
+      UNAME: $BASE_UNAME
+      SERVER_ADDR: $BASE_SERVER_ADDR
