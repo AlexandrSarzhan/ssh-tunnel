@@ -8,7 +8,7 @@ ENV DST_SSH_DATA="/root/.ssh"
 
 EXPOSE $PORT
 
-CMD rm -rf $DST_SSH_DATA \
+ENTRYPOINT rm -rf $DST_SSH_DATA \
   && mkdir $DST_SSH_DATA \
   && cp -r $SRC_SSH_DATA/* $DST_SSH_DATA/ \
   && chmod -R 600 $DST_SSH_DATA/* \
